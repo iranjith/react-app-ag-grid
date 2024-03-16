@@ -3,19 +3,19 @@ import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ColDef } from "ag-grid-community";
-import React from "react";
 
 function App() {
 
   const [rowData, setRowData] = useState([
-    { make: "Toyota", model: "Celica", price: 35000 },
-    { make: "Ford", model: "Mondeo", price: 32000 },
-    { make: "Porsche", model: "Boxster", price: 72000 },
+    { make: "Toyota", model: "Celica", color:'Red', price: 35000 },
+    { make: "Ford", model: "Mondeo",color:'Blue', price: 32000 },
+    { make: "Porsche", model: "Boxster",color:'Green', price: 72000 },
   ]);
 
   const columnDefs: ColDef[] = [
     { headerName: "Make", field: "make" },
     { headerName: "Model", field: "model" },
+    { headerName: "Color", field: "color" },
     { headerName: "Price", field: "price" },
   ];
 
@@ -66,9 +66,6 @@ function App() {
         <AgGridReact ref={gridRef} rowData={rowData} columnDefs={columnDefs} defaultColDef={defaultColDef} rowSelection="multiple"
           animateRows={true} onCellClicked={cellClickListener} ></AgGridReact>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }
